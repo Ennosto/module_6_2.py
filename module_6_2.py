@@ -53,13 +53,14 @@ class Vehicle():
         print(f'{Vehicle.get_model(self)}, {Vehicle.get_horsepower(self)}, {Vehicle.get_color(self)}, Владелец: {self.owner}')
 
 
-
     def set_color(self, new_color):
-        self.new_color = str(new_color)
-        if self.new_color.lower() in self.__COlOR_VARIANT:
-            self.__color = new_color
+        self.new_color = new_color
+        for i in self.__COlOR_VARIANT:
+            if i.lower() == self.new_color.lower():
+                self.__color = new_color
+                break
         else:
-            print(f"Нельзя сменить цвет на {new_color}.")
+            print(f"Нельзя сменить цвет на {self.new_color}")
 
 
 
